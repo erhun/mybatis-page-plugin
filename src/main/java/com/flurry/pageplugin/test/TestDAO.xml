@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="com.flurry.pageplugin.test.TestDAO">
+    <select id="queryByPage" resultType="com.flurry.pageplugin.test.TestInfo">
+        select
+          t.id,t.code
+        from
+          test t
+        where 1=1
+        <if test="code!=null and code!=''">
+            and t.code like concat('%',#{code},'%')
+        </if>
+    </select>
+</mapper>
